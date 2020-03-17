@@ -36,8 +36,8 @@ export const handler: APIGatewayProxyHandler = async (
   await docClient.update(params).promise()
 
   return {
-    statusCode: 201,
+    statusCode: 204,
     headers: { 'Access-Control-Allow-Origin': '*' },
-    body: JSON.stringify({ todoId, ...updatedTodo })
+    body: ''
   }
 }
