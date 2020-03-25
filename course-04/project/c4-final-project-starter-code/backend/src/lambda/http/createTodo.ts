@@ -19,6 +19,8 @@ export const handler: APIGatewayProxyHandler = async (
   const todoId = uuid.v4()
   const newTodo = {
     todoId,
+    done: false,
+    createdAt: new Date().toString(),
     ...parsedBody
   }
 
