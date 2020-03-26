@@ -12,6 +12,9 @@ provider:
   stage: ${opt:stage, 'dev'}
   region: ${opt:region, 'us-east-1'}
 
+  environment:
+    TODO_TABLE: Todo-${self:provider.stage}
+
 functions:
   Auth:
     handler: src/lambda/auth/auth0Authorizer.handler
@@ -67,7 +70,7 @@ resources:
     TodoTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: TODO
+        TableName: Todo-${self:provider.environment.TOD0_TABLE}
         AttributeDefinitions:
           - AttributeName: todoId
             AttributeType: S
