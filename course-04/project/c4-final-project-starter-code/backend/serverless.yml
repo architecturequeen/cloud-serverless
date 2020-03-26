@@ -71,7 +71,11 @@ resources:
         AttributeDefinitions:
           - AttributeName: todoId
             AttributeType: S
+          - AttributeName: dueDate
+            AttributeType: S
         KeySchema:
           - AttributeName: todoId
             KeyType: HASH
+          - AttributeName: dueDate
+            KeyType: RANGE
         BillingMode: PAY_PER_REQUEST
