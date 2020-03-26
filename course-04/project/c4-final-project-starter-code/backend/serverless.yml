@@ -59,3 +59,14 @@ functions:
 resources:
   Resources:
     # TODO: Add any necessary AWS resources
+    TodoTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: TODO
+        AttributeDefinitions:
+          - AttributeName: todoId
+            AttributeType: S
+        KeySchema:
+          - AttributeName: todoId
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
