@@ -59,6 +59,9 @@ functions:
           method: patch
           path: todos/{todoId}
           cors: true
+          request:
+            schema:
+              application/json: ${file(requests/update-todo-request.json)}
     iamRoleStatements:
       - Effect: Allow
         Action:
